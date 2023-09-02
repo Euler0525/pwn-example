@@ -1,4 +1,35 @@
 
+ex1_plus:     file format elf32-i386
+
+
+Disassembly of section .init:
+
+08049000 <_init>:
+ 8049000:	53                   	push   ebx
+ 8049001:	83 ec 08             	sub    esp,0x8
+ 8049004:	e8 a7 00 00 00       	call   80490b0 <__x86.get_pc_thunk.bx>
+ 8049009:	81 c3 eb 2f 00 00    	add    ebx,0x2feb
+ 804900f:	8b 83 fc ff ff ff    	mov    eax,DWORD PTR [ebx-0x4]
+ 8049015:	85 c0                	test   eax,eax
+ 8049017:	74 02                	je     804901b <_init+0x1b>
+ 8049019:	ff d0                	call   eax
+ 804901b:	83 c4 08             	add    esp,0x8
+ 804901e:	5b                   	pop    ebx
+ 804901f:	c3                   	ret    
+
+Disassembly of section .plt:
+
+08049020 <__libc_start_main@plt-0x10>:
+ 8049020:	ff 35 f8 bf 04 08    	push   DWORD PTR ds:0x804bff8
+ 8049026:	ff 25 fc bf 04 08    	jmp    DWORD PTR ds:0x804bffc
+ 804902c:	00 00                	add    BYTE PTR [eax],al
+	...
+
+08049030 <__libc_start_main@plt>:
+ 8049030:	ff 25 00 c0 04 08    	jmp    DWORD PTR ds:0x804c000
+ 8049036:	68 00 00 00 00       	push   0x0
+ 804903b:	e9 e0 ff ff ff       	jmp    8049020 <_init+0x20>
+
 08049040 <read@plt>:
  8049040:	ff 25 04 c0 04 08    	jmp    DWORD PTR ds:0x804c004
  8049046:	68 08 00 00 00       	push   0x8
